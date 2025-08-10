@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Saree Inventory</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">Saree Inventory</div>
+    <div class="actions">
+      <button id="btn-export" class="btn ghost">Export CSV</button>
+      <button id="btn-clear" class="btn ghost">Clear Filters</button>
+      <button id="btn-cart" class="btn pill">Cart • <span id="cart-count">0</span></button>
+    </div>
+  </header>
+
+  <section class="controls">
+    <input id="q" type="search" placeholder="Search by Saree Number, Color, Fabric" />
+    <input id="minPrice" type="number" min="0" placeholder="Min ₹" />
+    <input id="maxPrice" type="number" min="0" placeholder="Max ₹" />
+    <select id="fabric"><option value="">Fabric</option></select>
+    <select id="color"><option value="">Color</option></select>
+    <select id="sort">
+      <option value="relevance">Sort: Relevance</option>
+      <option value="price-asc">Price: Low → High</option>
+      <option value="price-desc">Price: High → Low</option>
+      <option value="number-asc">Number: A → Z</option>
+      <option value="number-desc">Number: Z → A</option>
+    </select>
+  </section>
+
+  <main id="grid" class="grid"></main>
+
+  <aside id="cart-drawer" class="drawer">
+    <div class="drawer-head">
+      <h3>Cart</h3>
+      <button id="close-cart" class="icon-btn" aria-label="Close">✕</button>
+    </div>
+    <div id="cart-items" class="cart-items"></div>
+    <div class="drawer-foot">
+      <div class="total">Total: ₹<span id="cart-total">0</span></div>
+      <button id="checkout" class="btn">Checkout</button>
+    </div>
+  </aside>
+  <div id="backdrop" class="backdrop"></div>
+
+  <div id="toast" class="toast"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
